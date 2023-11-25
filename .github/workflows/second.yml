@@ -26,7 +26,7 @@ jobs:
     - name: npm istalled
       run: npm ci
     - name: Run test
-      run: npm run rest
+      run: npm run test
  Build: 
   runs-on: ubuntu-latest
   steps:
