@@ -1,0 +1,20 @@
+name: Run workflow in single job
+on: workflow_dispatch  
+jobs:
+ test:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Get a code
+      uses: actions/checkout@v3
+    - name: istalling node package
+      uses: actions/setup-node@v3
+      with:
+         node-version: '18'
+    - name: npm istalled
+      run: npm ci
+    - name: Run lint
+      run: npm run lint
+    - name: Run test
+      run: npm run rest
+    - name: npm deploy
+      run: npm run deploy
