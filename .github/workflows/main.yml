@@ -1,5 +1,5 @@
 name: Run workflow in single job
-on: push 
+on: workflow_dispatch 
 jobs:
  test:
   runs-on: ubuntu-latest
