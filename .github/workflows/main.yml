@@ -1,5 +1,5 @@
 name: Run workflow in single job
-on: workflow_dispatch  
+on: push 
 jobs:
  test:
   runs-on: ubuntu-latest
@@ -15,6 +15,6 @@ jobs:
     - name: Run lint
       run: npm run lint
     - name: Run test
-      run: npm run rest
+      run: npm run test
     - name: npm deploy
       run: npm run deploy
