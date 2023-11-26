@@ -1,5 +1,5 @@
 name: Run jobs in three saparet jobs
-on: push 
+on: workflow_dispatch 
 jobs:
  Install:
   runs-on: ubuntu-latest
