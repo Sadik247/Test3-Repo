@@ -1,4 +1,4 @@
-name: Run jobs in three saparet jobs
+name: Run jobs in three saparet jobs - Build ${{ github.run_id }}
 on: workflow_dispatch 
 jobs:
  Install:
