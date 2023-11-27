@@ -22,7 +22,7 @@ jobs:
           wget https://repo1.maven.org/maven2/kg/apc/jmeter-plugins-cmd/2.2/jmeter-plugins-cmd-2.2.jar -O jmeter-plugins-cmd.jar
 
       - name: Convert JTL to CSV
-        run: java -cp cmdrunner.jar;jmeter-plugins-cmd.jar kg.apc.cmd.UniversalConverter --tool Reporter --input-jtl result.jtl --plugin-type AggregateReport --generate-csv converted_results.csv
+        run: java -cp cmdrunner.jar;jmeter-plugins-cmd.jar kg.apc.cmd.UniversalConverter --tool Reporter --input-jtl result.jtl --plugin-type AggregateReport --generate-csv converted_results.csv 2>&1 | tee conversion_log.txt
       - name: Upload CSV file as artifact
         uses: actions/upload-artifact@v2
         with:
