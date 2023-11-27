@@ -19,8 +19,7 @@ jobs:
             -e JMETER_CMD=AggregateReport \
             apache/jmeter:latest -g result.jtl -o /jmeter/output 2>&1 | tee -a conversion_log.txt
 
-      - name: Change ownership of converted CSV file
-        run: sudo chown $USER:$USER /jmeter/output/*
+      
 
       - name: Display working directory contents
         run: ls -l /jmeter/output
