@@ -19,4 +19,4 @@ jobs:
             -g result.jtl -o Jmeter_results.csv
 
       - name: Display converted CSV
-        run: cat converted_results.csv
+        run: cat Jmeter_results.csv
