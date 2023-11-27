@@ -22,7 +22,7 @@ jobs:
       
 
       - name: Display working directory contents
-        run: ls -l /jmeter/output
+        run: ls -l
 
       - name: Display last lines of conversion log
         run: tail -n 20 conversion_log.txt
