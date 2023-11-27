@@ -16,7 +16,7 @@ jobs:
             -v ${{ github.workspace }}:/jmeter \
             -w /jmeter \
             justb4/jmeter \
-            -g result.jtl -o Jmeter_results.csv
+            -g result.jtl -o converted_results.csv
 
       - name: Display converted CSV
-        run: cat Jmeter_results.csv
+        run: cat converted_results.csv
