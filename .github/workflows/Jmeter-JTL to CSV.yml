@@ -18,5 +18,8 @@ jobs:
             justb4/jmeter \
             -g result.jtl -o converted_results.csv 2>&1 | tee conversion_log.txt
 
-      - name: Display conversion log
-        run: cat conversion_log.txt
+      - name: Display working directory contents
+        run: ls -l
+
+      - name: Display last lines of conversion log
+        run: tail -n 20 conversion_log.txt
