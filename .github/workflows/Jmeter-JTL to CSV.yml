@@ -23,7 +23,7 @@ jobs:
           
       - name: Convert JTL to CSV
         run: |
-          java -cp .:cmdrunner.jar:jmeter-plugins-cmd.jar kg.apc.cmd.UniversalConverter \
+          java -cp :cmdrunner.jar:jmeter-plugins-cmd.jar kg.apc.cmd.UniversalConverter \
             --tool Reporter --input-jtl result.jtl \
             --plugin-type AggregateReport --generate-csv converted_results.csv \
             2>&1 | tee conversion_log.txt
