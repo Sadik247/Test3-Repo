@@ -26,5 +26,11 @@ jobs:
 
       - name: Display last lines of conversion log
         run: tail -n 20 conversion_log.txt
+
+      - name: Upload converted CSV file as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: converted-results
+          path: converted_results.csv
         
       
