@@ -1,4 +1,4 @@
-name: Run jobs in three separate jobs - ${{ github.run_id }}
+name: Run jobs in three separate jobs
 on: push
 jobs:
  Install:
@@ -38,8 +38,11 @@ jobs:
       uses: actions/setup-node@v3
       with:
          node-version: '18'
-    - name: npm istalled
+    - name: npm install
       run: npm ci
     - name: npm deploy
       run: npm run build
+    - name: Display Build ID
+      run: echo "Build ID:${{ github.workflow }}-${{ github.run_id }}"
+
       
