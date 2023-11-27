@@ -1,0 +1,108 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1700643049831,2438,"1681-Rewards-Create Cart-Valid ""99263"" for Authorized user",200,OK,Rewards 2-1,text,true,,1899,358,1,1,https://dev.focusbrands.com/pqa/cart,2434,0,363
+1700643052315,2907,1689-Rewards-Add product cart-Valid-Authorized User,200,OK,Rewards 2-1,text,true,,2228,511,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d/product,2907,0,0
+1700643055227,2769,1212-Rewards-Validate cart for Authorized user,200,OK,Rewards 2-1,text,true,,997,393,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d/validate?checkupsell=true,2769,0,0
+1700643057998,1428,1695-Rewards-Get Product details-Authorized User,200,OK,Rewards 2-1,text,true,,2222,347,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d,1428,0,0
+1700643059427,1513,3595-Rewards-Estimated Points-Valid,200,OK,Rewards 2-1,text,true,,628,350,1,1,https://dev.focusbrands.com/pqa/rewards/earn/estimate?subtotal=100&total=200,1513,0,0
+1700643060943,350,3597-Rewards-Estimated Points-InValid (minus value),422,Unprocessable Entity,Rewards 2-1,text,false,,725,352,1,1,https://dev.focusbrands.com/pqa/rewards/earn/estimate?subtotal=-100&total=-200,350,0,0
+1700643061295,339,3597-Rewards-Estimated Points-InValid (zero value),422,Unprocessable Entity,Rewards 2-1,text,false,,725,346,1,1,https://dev.focusbrands.com/pqa/rewards/earn/estimate?subtotal=0&total=0,339,0,0
+1700643061636,887,3596-Rewards-Estimated Points-InValid (empty value),422,Unprocessable Entity,Rewards 2-1,text,false,,794,344,1,1,https://dev.focusbrands.com/pqa/rewards/earn/estimate?subtotal=&total=,887,0,0
+1700643062524,1706,2710-Rewards-Estimated Points-InValid (total is less than subtotal),200,OK,Rewards 2-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[200]]]
+
+****** comparison: [[[422]]]
+
+/",628,350,1,1,https://dev.focusbrands.com/pqa/rewards/earn/estimate?subtotal=200&total=100,1706,0,0
+1700643064231,2634,3726-Rewards-Scan Qr&Bar Code Earn Points-Valid,422,Unprocessable Entity,Rewards 2-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[422]]]
+
+****** comparison: [[[200]]]
+
+/",718,428,1,1,https://dev.focusbrands.com/pqa/rewards/earn/qrcode,2633,0,0
+1700643066866,2206,3727-Rewards-Scan Qr&Bar Code Earn Points-InValid-Already Used Qr,422,Unprocessable Entity,Rewards 2-1,text,false,,718,428,1,1,https://dev.focusbrands.com/pqa/rewards/earn/qrcode,2206,0,0
+1700643069073,1828,3730-Rewards-Scan Qr&Bar Code Earn Points-InValid (location id),422,Unprocessable Entity,Rewards 2-1,text,false,,718,428,1,1,https://dev.focusbrands.com/pqa/rewards/earn/qrcode,1828,0,0
+1700643070903,355,3729-Rewards-Scan Qr&Bar Code Earn Points-InValid-(empty),422,Unprocessable Entity,Rewards 2-1,text,false,,764,410,1,1,https://dev.focusbrands.com/pqa/rewards/earn/qrcode,355,0,0
+1700643071264,2995,7011-Rewards-Apply Promo Code-Valid,200,OK,Rewards 2-1,text,true,,2317,402,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d/redeemable,2995,0,0
+1700643074260,3150,7042-Rewards-Apply Promo Code-InValid(Invalid code),400,Bad Request,Rewards 2-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[4]]]00
+
+****** comparison: [[[2]]]00
+
+/",706,402,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d/redeemable,3150,0,0
+1700643077411,783,7037-Rewards-Apply Promo Code-InValid(empty code),422,Unprocessable Entity,Rewards 2-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[422]]]
+
+****** comparison: [[[200]]]
+
+/",708,395,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d/redeemable,783,0,0
+1700643078196,2101,7184-Rewards-Remove Promo Code-Valid,200,OK,Rewards 2-1,text,true,,2206,380,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d/redeemable,2101,0,0
+1700643080298,1749,7188-Rewards-Remove Promo Code-InValid(Already Removed),400,Bad Request,Rewards 2-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[4]]]00
+
+****** comparison: [[[2]]]00
+
+/",706,380,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d/redeemable,1749,0,0
+1700643082048,2125,7184-Rewards-Apply Promo Code-Valid(After Removed),200,OK,Rewards 2-1,text,true,,2317,402,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d/redeemable,2125,0,0
+1700643084185,1339,4262-Rewards-Unlock(Promo Code)-Valid,422,Unprocessable Entity,Rewards 2-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[422]]]
+
+****** comparison: [[[200]]]
+
+/",678,367,1,1,https://dev.focusbrands.com/pqa/rewards/unlock,1338,0,0
+1700643085524,1011,4284-Rewards-Unlock(Promo Code)-InValid promo code,422,Unprocessable Entity,Rewards 2-1,text,false,,678,368,1,1,https://dev.focusbrands.com/pqa/rewards/unlock,1011,0,0
+1700643086536,1266,4286-Rewards-Unlock(Promo Code)-InValid-Already used,422,Unprocessable Entity,Rewards 2-1,text,false,,678,367,1,1,https://dev.focusbrands.com/pqa/rewards/unlock,1266,0,0
+1700643087803,388,4288-Rewards-Unlock(Promo Code)-InValid-empty code,422,Unprocessable Entity,Rewards 2-1,text,false,,676,359,1,1,https://dev.focusbrands.com/pqa/rewards/unlock,388,0,0
+1700643088192,1034,4285-Rewards-Unlock(Promo Code)-InValid-Expired,422,Unprocessable Entity,Rewards 2-1,text,false,,678,367,1,1,https://dev.focusbrands.com/pqa/rewards/unlock,1033,0,0
+1700643089227,2308,6977-Rewards-Apply Rewards-Valid,200,OK,Rewards 2-1,text,false,,2314,428,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d/reward,2308,0,0
+1700643091559,931,6984-Rewards-Apply Rewards-InValid(With empty fields),422,Unprocessable Entity,Rewards 2-1,text,true,,746,416,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d/reward,931,0,0
+1700643092491,2055,6978-Rewards-Apply Rewards-InValid(Invalid value of loyaltyid&code),200,OK,Rewards 2-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[200]]]
+
+****** comparison: [[[422]]]
+
+/",2314,428,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d/reward,2054,0,0
+1700643094547,2378,6995-Rewards-Get Qualifying Rewards-Valid,400,Bad Request,Rewards 2-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[4]]]00
+
+****** comparison: [[[2]]]00
+
+/",754,375,1,1,https://dev.focusbrands.com/pqa/cart/142446a9-e7de-4d40-9931-7d32595cf82d/rewards?membershipId=908327,2378,0,0
+1700643096926,3288,3598-Rewards-View Balance-Valid,200,OK,Rewards 2-1,text,false,,791,321,1,1,https://dev.focusbrands.com/pqa/rewards/balance,3288,0,0
+1700643100215,40,3599-Rewards-View Balance-InValid(UnAuthorized),401,Unauthorized,Rewards 2-1,text,false,,667,328,1,1,https://dev.focusbrands.com/pqa/rewards/balance,40,0,0
+1700643100256,1026,4291-Rewards-View all Rewards-Valid,200,OK,Rewards 2-1,text,true,,3641,353,1,1,https://dev.focusbrands.com/pqa/rewards/?event_filter=rewards&limit=10&offset=0,1026,0,0
+1700643101287,1097,4291-Rewards-View all Rewards-Valid(limit=1&Offset=3),200,OK,Rewards 2-1,text,true,,614,352,1,1,https://dev.focusbrands.com/pqa/rewards/?event_filter=rewards&limit=1&offset=3,1097,0,0
+1700643102385,39,4292-Rewards-View all Rewards-InValid(UnAuthorized),401,Unauthorized,Rewards 2-1,text,false,,667,359,1,1,https://dev.focusbrands.com/pqa/rewards/?event_filter=rewards&limit=1&offset=3,39,0,0
+1700643102425,421,4292-Rewards-View all Rewards-InValid(empty limit & Offset),422,Unprocessable Entity,Rewards 2-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[422]]]
+
+****** comparison: [[[200]]]
+
+/",734,350,1,1,https://dev.focusbrands.com/pqa/rewards/?event_filter=rewards&limit=&offset=,421,0,0
+1700643102847,1520,4292-Rewards-View all Rewards-InValid(limit=0&Offset=0),200,OK,Rewards 2-1,text,true,,614,352,1,1,https://dev.focusbrands.com/pqa/rewards/?event_filter=rewards&limit=0&offset=0,1520,0,0
+1700643104370,357,4292-Rewards-View all Rewards-InValid(limit=1 & empty Offset),422,Unprocessable Entity,Rewards 2-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[422]]]
+
+****** comparison: [[[200]]]
+
+/",690,352,1,1,https://dev.focusbrands.com/pqa/rewards/?event_filter=rewards&limit=1&offset=),357,0,0
+1700643104729,1526,4456-Rewards-Banked Rew-Valid,200,OK,Rewards 2-1,text,true,,993,474,1,1,https://dev.focusbrands.com/pqa/rewards/apply/currency,1526,0,0
+1700643106260,342,4489-Rewards-Banked Rew-InValid(empty for amount & LocationId),422,Unprocessable Entity,Rewards 2-1,text,false,,766,467,1,1,https://dev.focusbrands.com/pqa/rewards/apply/currency,342,0,0
+1700643106603,1310,4490-Rewards-Banked Rew-InValid(amount=0),422,Unprocessable Entity,Rewards 2-1,text,false,,672,473,1,1,https://dev.focusbrands.com/pqa/rewards/apply/currency,1310,0,0
+1700643107914,422,4490-Rewards-Banked Rew-InValid(locationID=12345),403,Forbidden,Rewards 2-1,text,false,"Test failed: code expected to equal /
+
+****** received  : 4[[[03]]]
+
+****** comparison: 4[[[22]]]
+
+/",647,474,1,1,https://dev.focusbrands.com/pqa/rewards/apply/currency,422,0,0
+1700643108337,1191,4490-Rewards-Banked Rew-InValid(amount=-10),422,Unprocessable Entity,Rewards 2-1,text,false,,672,475,1,1,https://dev.focusbrands.com/pqa/rewards/apply/currency,1191,0,0
