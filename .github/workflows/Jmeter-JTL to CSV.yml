@@ -1,0 +1,23 @@
+name: Convert JTL to CSV
+
+on: push
+jobs:
+  convert-jtl-to-csv:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Download JMeter Plugins CMDRunner
+        run: |
+          wget https://repo1.maven.org/maven2/kg/apc/cmdrunner/2.2/cmdrunner-2.2.jar -O cmdrunner.jar
+
+      - name: Convert JTL to CSV
+        run: java -jar cmdrunner.jar --tool Reporter --generate-csv converted_results.csv --input-jtl result.jtl --plugin-type AggregateReport
