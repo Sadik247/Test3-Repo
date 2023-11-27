@@ -1,5 +1,5 @@
-name: Run jobs in three separate jobs - Build ${{ github.run_id }
-on: workflow_dispatch 
+name: Run jobs in three separate jobs - ${{ github.run_id }}
+on: push
 jobs:
  Install:
   runs-on: ubuntu-latest
