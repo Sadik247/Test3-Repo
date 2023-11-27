@@ -1,6 +1,6 @@
 name: Convert JTL to CSV
 
-on: push
+on: issues
 jobs:
   convert-jtl-to-csv:
     runs-on: ubuntu-latest
