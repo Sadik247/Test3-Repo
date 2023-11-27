@@ -27,4 +27,5 @@ jobs:
       - name: Display converted CSV
         run: |
             cd converted_results.csv
+            cat converted_results.csv
             pwd
