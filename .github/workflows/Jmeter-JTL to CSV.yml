@@ -18,14 +18,13 @@ jobs:
             justb4/jmeter \
             -g result.jtl -o converted_results.csv 2>&1 | tee conversion_log.txt
 
+      - name: Change ownership of converted CSV file
+        run: sudo chown $USER:$USER converted_results.csv
+
       - name: Display working directory contents
         run: ls -l
 
       - name: Display last lines of conversion log
         run: tail -n 20 conversion_log.txt
         
-      - name: Display converted CSV
-        run: |
-            cd converted_results.csv
-            cat converted_results.csv
-            pwd
+      
