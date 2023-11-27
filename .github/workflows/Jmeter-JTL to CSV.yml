@@ -1,7 +1,9 @@
 name: Convert JTL to CSV and Upload Artifact
 
-on: push
-  
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   convert-jtl-to-csv:
@@ -11,20 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up JMeter
-        run: |
-          wget -q https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.3.tgz
-          tar -xf apache-jmeter-5.4.3.tgz
-          mv apache-jmeter-5.4.3 $HOME/jmeter
-          echo 'export PATH=$PATH:$HOME/jmeter/bin' >> $HOME/.bashrc
-          source $HOME/.bashrc
-
-      - name: Display JMeter version
-        run: jmeter --version
-
       - name: Convert JTL to CSV
         run: |
-          jmeter -g result.jtl -o /jmeter/output 2>&1 | tee -a conversion_log.txt
+          docker run --rm \
+            -v ${{ github.workspace }}:/jmeter \
+            -w /jmeter \
+            -e JMETER_CMD=AggregateReport \
+            apache/jmeter:latest -g result.jtl -o /jmeter/output 2>&1 | tee -a conversion_log.txt
 
       - name: Change ownership of converted CSV file
         run: sudo chown $USER:$USER /jmeter/output/*
