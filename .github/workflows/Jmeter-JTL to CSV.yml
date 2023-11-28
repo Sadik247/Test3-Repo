@@ -19,10 +19,10 @@ jobs:
       - name: Display JAR files
         run: ls -l /home/runner/*.jar
 
-      # - name: Convert JMeter HTML to CSV
-      #   run: java -cp /home/runner/cmdrunner.jar:/home/runner/jmeter-plugins-cmd.jar kg.apc.cmd.UniversalConverter \
-      #        --tool Reporter --plugin-type CompositeResultCollector --generate-csv output.csv \
-      #        -i results.html
+      - name: Convert JMeter HTML to CSV
+        run: java -cp /home/runner/cmdrunner.jar:/home/runner/jmeter-plugins-cmd.jar kg.apc.cmd.UniversalConverter \
+             --tool Reporter --plugin-type CompositeResultCollector --generate-csv output.csv \
+             -i results.html
 
-      # - name: Display converted CSV
-      #   run: cat output.csv
+      - name: Display converted CSV
+        run: cat output.csv
