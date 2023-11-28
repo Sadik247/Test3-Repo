@@ -1,6 +1,8 @@
 name: Convert JMeter HTML to CSV
 
 on: push
+  
+
 jobs:
   convert-html-to-csv:
     runs-on: ubuntu-latest
@@ -13,13 +15,14 @@ jobs:
         run: |
           wget https://repo1.maven.org/maven2/kg/apc/cmdrunner/2.2/cmdrunner-2.2.jar -O $HOME/cmdrunner.jar
           wget https://repo1.maven.org/maven2/kg/apc/jmeter-plugins-cmd/2.2/jmeter-plugins-cmd-2.2.jar -O $HOME/jmeter-plugins-cmd.jar
+
       - name: Display JAR files
         run: ls -l $HOME/*.jar
-         
-      # - name: Convert JMeter HTML to CSV
-      #   run: java -cp $HOME/cmdrunner.jar:$HOME/jmeter-plugins-cmd.jar kg.apc.cmd.UniversalConverter \
-      #        --tool Reporter --plugin-type CompositeResultCollector --generate-csv output.csv \
-      #        -i results.html
 
-      # - name: Display converted CSV
-      #   run: cat output.csv
+      - name: Convert JMeter HTML to CSV
+        run: java -cp $HOME/cmdrunner.jar:$HOME/jmeter-plugins-cmd.jar kg.apc.cmd.UniversalConverter \
+             --tool Reporter --plugin-type CompositeResultCollector --generate-csv output.csv \
+             -i results.html
+
+      - name: Display converted CSV
+        run: cat output.csv
