@@ -1,34 +1,23 @@
-name: Convert JTL to CSV and Upload Artifact
+name: Convert JMeter HTML to CSV
 
 on: push
-  
-
 jobs:
-  convert-jtl-to-csv:
+  convert-html-to-csv:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Convert JTL to CSV
+      - name: Install JMeter Plugins CMD
         run: |
-          docker run --rm \
-            -v ${{ github.workspace }}:/jmeter \
-            -w /jmeter \
-            -e JMETER_CMD=AggregateReport \
-            apache/jmeter:latest -g result.jtl -o /jmeter/output 2>&1 | tee -a conversion_log.txt
+          wget https://repo1.maven.org/maven2/kg/apc/cmdrunner/2.2/cmdrunner-2.2.jar -O cmdrunner.jar
+          wget https://repo1.maven.org/maven2/kg/apc/jmeter-plugins-cmd/2.2/jmeter-plugins-cmd-2.2.jar -O jmeter-plugins-cmd.jar
 
-      
+      - name: Convert JMeter HTML to CSV
+        run: java -cp cmdrunner.jar:jmeter-plugins-cmd.jar kg.apc.cmd.UniversalConverter \
+             --tool Reporter --plugin-type CompositeResultCollector --generate-csv output.csv \
+             -i results.html
 
-      - name: Display working directory contents
-        run: ls -l
-
-      - name: Display last lines of conversion log
-        run: tail -n 20 conversion_log.txt
-
-      - name: Upload converted CSV files as artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: converted-results
-          path: /jmeter/output
+      - name: Display converted CSV
+        run: cat output.csv
